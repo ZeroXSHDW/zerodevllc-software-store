@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZeroDev LLC — Software Store</title>
+<meta name="description" content="Software by ZeroDev LLC. Mac Gaming Helper and more — built for macOS.">
+<!-- Replace this with your real Stripe Payment Link URL -->
+<script>
+  window.STRIPE_LINK = "https://buy.stripe.com/REPLACE_WITH_YOUR_PAYMENT_LINK";
+  window.GITHUB_USER = "ZeroXSHDW";
+</script>
+<style>
+  :root {
+    --bg:#05070f; --bg2:#0a1226; --card:rgba(255,255,255,0.04); --border:rgba(255,255,255,0.09);
+    --text:#eef2fa; --muted:#9aa7c0; --accent:#2e86f0; --green:#2ecf6a;
+    --radius:18px; --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--font);color:var(--text);background:radial-gradient(1200px 600px at 70% -10%,rgba(46,134,240,.18),transparent 60%),radial-gradient(900px 500px at 0% 20%,rgba(46,207,106,.10),transparent 55%),linear-gradient(180deg,var(--bg),var(--bg2));min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 24px 80px}
+  header{text-align:center;margin-bottom:40px}
+  .brand{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+  h1{font-size:52px;line-height:1.08;font-weight:800;letter-spacing:-.02em;margin:14px 0 18px}
+  h1 .grad{background:linear-gradient(90deg,#4da3ff,#2ecf6a);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);font-size:19px;max-width:720px;margin:0 auto}
+  .hero{text-align:center;margin:34px 0 46px}
+  .hero img{width:100%;max-width:920px;border-radius:var(--radius);box-shadow:0 40px 100px rgba(0,0,0,.55);border:1px solid var(--border)}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:16px;padding:14px 28px;border-radius:999px;transition:transform .15s ease,box-shadow .15s ease;cursor:pointer;border:0}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:linear-gradient(90deg,#2e86f0,#2ecf6a);color:#04101f;box-shadow:0 10px 30px rgba(46,207,106,.25)}
+  .btn.ghost{border:1px solid var(--border);color:var(--text);background:var(--card)}
+  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:30px 0 8px}
+  .note{color:var(--muted);font-size:13px;text-align:center;margin-top:10px}
+  h2{font-size:28px;margin:56px 0 18px;text-align:center}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:10px}
+  .card h3{font-size:18px}
+  .card p{color:var(--muted);font-size:14px;flex:1}
+  .meta{font-size:12px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap}
+  .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:rgba(46,207,106,.10);padding:4px 10px;border-radius:999px}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  .row .btn{font-size:13px;padding:9px 16px}
+  .featured{border:1px solid rgba(46,134,240,.4);background:linear-gradient(180deg,rgba(46,134,240,.10),rgba(46,207,106,.06))}
+  footer{text-align:center;color:var(--muted);font-size:13px;margin-top:60px;border-top:1px solid var(--border);padding-top:24px}
+  footer a{color:var(--accent);text-decoration:none}
+  #repos .card a{color:var(--accent);text-decoration:none}
+  @media(max-width:640px){h1{font-size:34px}.sub{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">ZeroDev LLC · macOS software</div>
+    <h1>Software that makes your Mac <span class="grad">play harder</span></h1>
+    <p class="sub">Small, focused, offline-friendly macOS tools — built by ZeroDev LLC, sold with a simple one-time Stripe checkout.</p>
+  </header>
+
+  <div class="hero">
+    <img src="https://raw.githubusercontent.com/ZeroXSHDW/MacGamingHelper/main/docs/screenshots/app-3d.png" alt="Mac Gaming Helper — 3D render of the application">
+  </div>
+
+  <!-- Featured product -->
+  <div class="grid">
+    <div class="card featured">
+      <span class="badge">Featured</span>
+      <h3>Mac Gaming Helper</h3>
+      <p>Turn a PlayStation DualSense or DualShock 4 into a first-class Mac controller — live desk, Pad Check, keyboard/mouse mapping, per-app game profiles, and a real-time performance overlay.</p>
+      <div class="meta"><span>macOS 14+</span><span>Apple silicon</span><span>one-time · lifetime updates</span></div>
+      <div class="row">
+        <a class="btn primary" id="buy-featured" href="#" target="_blank" rel="noopener">Buy now — $4.99</a>
+        <a class="btn ghost" href="https://github.com/ZeroXSHDW/MacGamingHelper/releases/latest" target="_blank" rel="noopener">Download</a>
+        <a class="btn ghost" href="https://github.com/ZeroXSHDW/MacGamingHelper" target="_blank" rel="noopener">Source</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- All software (fetched live from GitHub) -->
+  <h2>All software</h2>
+  <div class="grid" id="repos"><p style="color:var(--muted)">Loading repositories…</p></div>
+
+  <footer>
+    © 2026 <a href="https://zerodevllc.com" target="_blank" rel="noopener">ZeroDev LLC</a> · <a href="https://github.com/ZeroXSHDW" target="_blank" rel="noopener">GitHub</a> · Payments processed securely by Stripe
+  </footer>
+</div>
+
+<script>
+  document.getElementById('buy-featured').href = window.STRIPE_LINK;
+
+  async function loadRepos() {
+    const el = document.getElementById('repos');
+    try {
+      const res = await fetch('https://api.github.com/users/' + window.GITHUB_USER + '/repos?per_page=100&sort=updated');
+      const repos = await res.json();
+      const featured = 'MacGamingHelper';
+      const list = repos
+        .filter(r => !r.fork && r.name !== 'zerodevllc-store')
+        .sort((a, b) => (a.name === featured ? -1 : b.name === featured ? 1 : b.stargazers_count - a.stargazers_count));
+      if (!list.length) { el.innerHTML = '<p style="color:var(--muted)">No public repositories yet.</p>'; return; }
+      el.innerHTML = list.map(r => `
+        <div class="card">
+          <h3>${r.name.replace(/[-_]/g, ' ')}</h3>
+          <p>${r.description || 'No description provided.'}</p>
+          <div class="meta">
+            ${r.language ? `<span>${r.language}</span>` : ''}
+            <span>★ ${r.stargazers_count}</span>
+            ${r.license ? `<span>${r.license.spdx_id}</span>` : ''}
+          </div>
+          <div class="row">
+            <a class="btn ghost" href="${r.html_url}" target="_blank" rel="noopener">View on GitHub</a>
+            <a class="btn primary" href="${window.STRIPE_LINK}" target="_blank" rel="noopener">Support / Buy</a>
+          </div>
+        </div>`).join('');
+    } catch (e) {
+      el.innerHTML = '<p style="color:var(--muted)">Could not load repositories from GitHub.</p>';
+    }
+  }
+  loadRepos();
+</script>
+</body>
+</html>
